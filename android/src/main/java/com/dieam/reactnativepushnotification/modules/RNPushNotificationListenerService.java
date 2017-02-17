@@ -93,6 +93,10 @@ public class RNPushNotificationListenerService extends GcmListenerService {
             bundle.putString("id", String.valueOf(randomNumberGenerator.nextInt()));
         }
 
+        // used for twilio service
+        String body = bundle.getString("twi_body");
+        bundle.putString("message", body);
+
         Boolean isForeground = isApplicationInForeground();
 
         RNPushNotificationJsDelivery jsDelivery = new RNPushNotificationJsDelivery(context);
